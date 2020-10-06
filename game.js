@@ -44,7 +44,6 @@ class Game{
                  var x =100;
                  var y=200;
                  var index =0;
-                 drawSprites();
                  for(var plr in allPlayers){
                     
                     
@@ -102,15 +101,19 @@ class Game{
                  
                   if (player.index !== null) {
                      //fill code here, to destroy the objects.
-                  }
-                
+                if (fruitGroup.isTouching(player1)||fruitGroup.isTouching(player2)) {
+                    score = score + 1;
+                    fruitGroup.destroyEach();
+                  
+                    
+                }
+                    }
 
-         
-         
-        
-         
-
+     drawSprites();
+     fill("white")
+     text(score,900,50);
     }
+
 
     end(){
        console.log("Game Ended");
